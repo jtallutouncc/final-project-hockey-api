@@ -23,6 +23,10 @@ specs = yaml.load(fs.readFileSync('./docs/openapi.yaml', 'utf8'));
 }
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/teams', teamRoutes);
 app.use('/api/players', playerRoutes);

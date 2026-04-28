@@ -116,7 +116,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Team'
   
-  /teams/{id}:
+  /api/teams/{id}:
     get:
       tags:
         - Teams
@@ -200,7 +200,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 
-  /players:
+  /api/players:
     get:
       tags:
         - Players
@@ -256,7 +256,7 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
     
-  /players/{id}:
+  /api/players/{id}:
     get:
       tags:
         - Players
@@ -342,7 +342,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 
-  /lineups:
+  /api/lineups:
     get:
       tags:
         - Lineups
@@ -395,7 +395,7 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 
-  /lineups/{id}:
+  /api/lineups/{id}:
     get:
       tags:
         - Lineups
@@ -479,7 +479,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 
-  /lineups/{id}/players:
+  /api/lineups/{id}/players:
     post:
       tags:
         - Lineups
@@ -515,7 +515,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 
-  /lineups/{id}/players/{playerId}:
+  /api/lineups/{id}/players/{playerId}:
     delete:
       tags:
         - Lineups

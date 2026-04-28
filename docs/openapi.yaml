@@ -47,6 +47,20 @@ paths:
                     type: string
         '400':
           $ref: '#/components/responses/InvalidUserInput'
+        '409':
+          description: Email already exists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                example:
+                  errors:
+                    - "Email already exists"
 
   /api/auth/login:
     post:
@@ -269,7 +283,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/Player'
         '400':
-          $ref: '#/components/responses/InvalidUserInput'
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                example:
+                  errors:
+                    - 'Name is required'
+                    - 'Position is required'
+                    - 'Team ID is required'
+                  
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -410,7 +439,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/Lineup'
         '400':
-          $ref: '#/components/responses/InvalidUserInput'
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                example:
+                  errors:
+                    - 'Name is required'
+                    - 'Team ID is required'
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -466,7 +508,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/Lineup'
         '400':
-          $ref: '#/components/responses/InvalidUserInput'
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                example:
+                  errors:
+                    - 'Name is required'
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -528,9 +582,21 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Lineup'
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Player successfully added to lineup
         '400':
-          $ref: '#/components/responses/InvalidUserInput'
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: playerId and lineupId are required
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -558,7 +624,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Lineup'
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Player successfully deleted from lineup
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':

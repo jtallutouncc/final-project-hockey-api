@@ -8,7 +8,7 @@ info:
 servers:
   - url: http://localhost:3000/api
     description: Local development server
-  - url: https://final-project-hockey-api-service.onrender.com
+  - url: https://final-project-hockey-api-service.onrender.com/api
     description: Production Server
 
 tags:
@@ -74,7 +74,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 
-  /teams:
+  /api/teams:
     get:
       tags:
         - Teams
